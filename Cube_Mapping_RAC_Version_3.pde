@@ -45,7 +45,7 @@ void draw() {
   background(51);
   
   fill(244, 66, 66);
-  rect(square1X, square1Y, square1Width, square1Height); 
+  rect(square1X, square1Y , square1Width, square1Height); 
   fill(101, 244, 66);
   rect(square2X, square2Y, square2Width, square2Height);
   fill(0, 114, 255);
@@ -87,7 +87,7 @@ rect(48, 529, 408, 48);
   textSize(12);
   fill(244, 66, 66);
   
-  
+
     text("Cube A X " + square1X, 50, 20+525);
     text("Cube A Z " + square1Y, 50, 40+525);
     fill(101, 244, 66);
@@ -105,9 +105,13 @@ rect(48, 529, 408, 48);
   
 //creates box that toggles the mapping x y text
 fill(0, 0, 0);
-rect(x,y,w,h);
+rect(x-1,y,w+1,h);
+fill(255, 33, 0);
+textSize(10);
+text ("save", x, 558);
  
 //makes the number grid
+textSize(12);
 fill (255, 255, 255);
 text("1", 8, 16);
 text("2", 8, 40);
@@ -198,8 +202,9 @@ text("35", 820, 16);
  String Cube3MappingYString = str(Cube3MappingY) + " ";
  String Cube4MappingXString = str(Cube4MappingX) + " ";
  String Cube4MappingYString = str(Cube4MappingY) + " ";
+
+//converts the floats of the x y data into strings (saveStrings can only save data into a txt if its a string)
 String Cube1MappingData = Cube1MappingXString + Cube1MappingYString + Cube2MappingXString + Cube2MappingYString + Cube3MappingXString + Cube3MappingYString + Cube4MappingXString + Cube4MappingYString;
-//String Cube1MappingData = "Dick FUck Shit";
 String data = Cube1MappingData;
 String[] list = split(data, ' ');
 
@@ -209,7 +214,7 @@ String[] list = split(data, ' ');
     
     
 // Writes the strings to a file, each on a separate line
-saveStrings("mapping file.txt", list);
+saveStrings("mappingfile.txt", list);
  
  
  showMessageDialog(null,"Mapping File Succesfully Saved!", 
